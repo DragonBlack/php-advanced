@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="/ajax/jquery.js"></script>
+<script type="text/javascript">
+    function digitalTemplate(val){
+        if(val < 10){
+            val = '0'+val;
+        }
+        return val;
+    }
+
+    $(document).ready(function(){
+        var t;
+        var clock = function() {
+            t = setInterval(function () {
+                var time = new Date();
+                var hours = time.getHours();
+                var min = time.getMinutes();
+                var sec = time.getSeconds();
+
+                $('#hour').text(digitalTemplate(hours));
+                $('#mins').text(digitalTemplate(min));
+                $('#sec').text(digitalTemplate(sec));
+            }, 500);
+        };
+
+        $('#stopClock').on('click', function(){
+            clearInterval(t);
+        });
+
+        $('#startClock').on('click', function(){
+            clock();
+            $('#stopClock').prop('disabled', false);
+        });
+
+        $('#resetClock').on('click', function(){
+            $('#stopClock').trigger('click').prop('disabled', true);
+            $('#hour').text('00');
+            $('#mins').text('00');
+            $('#sec').text('00');
+        });
+    });
+</script>
+
+<body>
+<span id="hour">00</span>:
+<span id="mins">00</span>:
+<span id="sec">00</span>
+<div>
+    <button id="startClock" about="About">Start</button>
+    <button id="stopClock" disabled="disabled">Stop</button>
+    <button id="resetClock">Reset</button>
+</div>
+</body>
+</html>
