@@ -4,8 +4,9 @@ class MyArray {
 
 }
 
+$a = new MyArray();
 //$obj = new ArrayObject([], ArrayObject::STD_PROP_LIST);
-$obj = new ArrayObject([], ArrayObject::ARRAY_AS_PROPS);
+$obj = new ArrayObject($a, ArrayObject::ARRAY_AS_PROPS);
 
 $obj["two"] = "A value";
 $obj->one = 'Append 1';

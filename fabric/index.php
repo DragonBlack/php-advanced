@@ -106,7 +106,7 @@ function snowman(ISnowman $snowman) {
     $snowman->drawBody(1, 2);
 }
 
-$typeSnowman = 'redw';
+$typeSnowman = 'red2';
 // мы выбираем тип семейства в начале кода
 switch($typeSnowman){
     case 'red':

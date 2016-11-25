@@ -11,7 +11,7 @@ class Singletone {
 
     public static function instance(){
         if(self::$_instance === null){
-            self::$_instance = new self();
+            self::$_instance = new self;
         }
         return self::$_instance;
     }
@@ -22,8 +22,9 @@ class Singletone {
     private function __wakeup(){}
 }
 
+
 $a = Singletone::instance();
-$ref = new ReflectionObject($a);
+$ref = new \ReflectionObject($a);
 $a->test = 10;
 
 $b = $ref->newInstanceWithoutConstructor();

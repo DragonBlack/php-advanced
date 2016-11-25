@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-<script src="/ajax/jquery.js"></script>
+<script src="/js-jq/jquery.js"></script>
 <script src="jfunc.js"></script>
 <script type="text/javascript">
     $(document).ready(function(){
-        $('#myClock').clock();
-
+        $('#myClock').clock('start');
+        $('#myClock1').clock();
     });
 </script>
 <body>
-<div id="myClock">
-</div>
+<div id="myClock"></div>
+<div id="myClock1"></div>
 </body>
 </html>

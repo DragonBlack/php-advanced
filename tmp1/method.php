@@ -13,6 +13,7 @@ class MyClass {
 }
 
 $obj = new MyClass();
+var_dump($obj);
 $a = new ReflectionMethod($obj, 'setValue');
 
 var_dump($a);

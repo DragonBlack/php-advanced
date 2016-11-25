@@ -15,7 +15,9 @@ class MyClass {
 
 $a = new ReflectionClass('MyClass');
 var_dump($a);
+echo '<pre/>';
 ReflectionClass::export('MyClass');
+echo '</pre>';
 var_dump(ReflectionClass::export('MyClass', true));
 echo '<br/>';
 var_dump($a->getProperties());

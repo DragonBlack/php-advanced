@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="/js-jq/jquery.js"></script>
+</head>
+<body>
+<form>
+    <input name="in1" value="123" data-id="wew" data-target-id="sefse"/><br/>
+    <input name="in2" value="5343"/><br/>
+    <input type="submit" value="Submit">
+</form>
+
+<a href="#" id="showdata">Show data</a>
+
+<script type="text/javascript">
+
+
+    $('body').on('submit', 'form', function(e){
+        e.preventDefault();
+        console.log($('input["data-id"=in1]').data('targetId'));
+    });
+
+</script>
+</body>
+</html>

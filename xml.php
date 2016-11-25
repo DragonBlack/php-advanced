@@ -31,6 +31,11 @@ XML;
 
 $xml = new SimpleXMLElement($xmlstr);
 
-$xml->movie->{great-lines}->rating;
+$a = $xml->movie->{great-lines}->rating;
+var_dump($a, $a[1], (string)$a[1]);
 
-var_dump((float)$xml->movie->{great-lines}->rating[0]['type']);
+var_dump((float)$a[0]['type']);
+
+$a[0]['type'] = 'ABCDEF';
+$xml->movie->addChild('rating', 1234567);
+$xml->asXML('example2.xml');

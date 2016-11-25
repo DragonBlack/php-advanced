@@ -31,4 +31,4 @@ $pdf->SetFontSize(10);
 $pdf->Write(5,'Congratulations! You have generated a PDF.');
 
 //Output the document
-$pdf->Output('example1.pdf','I');
+echo $pdf->Output('example1.pdf','S');

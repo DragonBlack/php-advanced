@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head></head>
+<script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript">
     function loadPhones() {
         // 1. Создаём новый объект XMLHttpRequest
         var xhr = new XMLHttpRequest();
 
         // 2. Конфигурируем его: GET-запрос на URL 'phones.json'
-        xhr.open('GET', 'phones.json', false);
+        xhr.open('GET', 'HightFile.7z', false);
 
+        var t = setInterval(function(){var time=new Date();console.log(time.getSeconds());}, 500);
         // 3. Отсылаем запрос
         xhr.send();
 
@@ -18,7 +20,7 @@
             alert(xhr.status + ': ' + xhr.statusText); // пример вывода: 404: Not Found
         } else {
             // вывести результат
-            alert(xhr.responseText); // responseText -- текст ответа.
+            console.log(xhr); // responseText -- текст ответа.
         }
     }
 
@@ -26,7 +28,8 @@
         var button = document.getElementById('btn');
         var xhr = new XMLHttpRequest();
 
-        xhr.open('GET', 'phones.json', true);
+        xhr.open('GET', 'http://google.ru', true);
+
 
         xhr.send(); // (1)
 
@@ -42,14 +45,31 @@
             } else {
                 alert(xhr.responseText);
             }
-
         }
+
+        console.log(xhr);
 
         button.innerHTML = 'Загружаю...'; // (2)
         button.disabled = true;
     }
+
+    function jQAjax(url){
+        $.ajax({
+            url: url,
+            dataType: 'jsonp',
+            success: function(response){
+                console.log(response.query.results);
+            },
+            error: function (a, b) {
+                console.log('Error');
+            },
+            complete: function(a, b){
+                //console.log(a, b);
+            }
+        });
+    }
 </script>
 <body>
-<button id="btn" onclick="loadPhonesAsync(this)">Загрузить phones.json!</button>
+<button id="btn" onclick="jQAjax('http://yandex.ru')">Загрузить phones.json!</button>
 </body>
 </html>

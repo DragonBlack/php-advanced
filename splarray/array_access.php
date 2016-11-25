@@ -1,5 +1,5 @@
 <?php
-class MyArray implements ArrayAccess {
+class MyArray implements ArrayAccess, Countable  {
     private $container = [];
 
     public function __construct() {
@@ -32,6 +32,10 @@ class MyArray implements ArrayAccess {
     public function offsetGet($offset) {
         echo __METHOD__, '<br/>', PHP_EOL;
         return isset($this->container[$offset]) ? $this->container[$offset] : null;
+    }
+
+    public function count(){
+        return sizeof($this->container);
     }
 }
 
